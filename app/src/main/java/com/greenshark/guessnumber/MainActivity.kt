@@ -7,8 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
@@ -24,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.greenshark.guessnumber.ui.theme.GuessNumberTheme
 import kotlin.random.Random
 
@@ -69,6 +73,8 @@ fun Game(modifier: Modifier = Modifier) {
         //Título
         Text(text = "Adivina el número")
 
+        Spacer(modifier = Modifier.height(16.dp))
+
         //Muestra el mensaje
         Text(text = mensaje)
 
@@ -82,6 +88,8 @@ fun Game(modifier: Modifier = Modifier) {
             mutableStateOf(true)
         }
 
+        Spacer(modifier = Modifier.height(16.dp))
+
         //Campo de texto para ingresar el número
         TextField(
             keyboardOptions = KeyboardOptions(
@@ -94,8 +102,12 @@ fun Game(modifier: Modifier = Modifier) {
                 numIngresado = it
             })
 
+        Spacer(modifier = Modifier.height(16.dp))
+
         //Muestra el número de intentos
         Text(text = "Intentos: $intentos")
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         Row {
             //Botón Reiniciar
@@ -107,6 +119,8 @@ fun Game(modifier: Modifier = Modifier) {
             }) {
                 Text(text = "Reiniciar")
             }
+
+            Spacer(modifier = Modifier.width(16.dp))
 
             //Botón Adivina
             Button(enabled = activo && numIngresado.isNotEmpty(), onClick = {
